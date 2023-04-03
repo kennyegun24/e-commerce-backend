@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     begin
       decoded_token = decode_token(token)
       @current_user_id = decoded_token['user_id']
-      @current_store_id = decode_token['store_id']
+      @current_store_id = decoded_token['store_id']
     rescue JWT::DecodeError
       render json: { status: 'ERROR', message: 'Invalid token' }, status: :unauthorized
     end
