@@ -10,9 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_154713) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_01_095627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.string "color"
+    t.decimal "price"
+    t.string "image"
+    t.string "details"
+    t.string "description"
+    t.bigint "store_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "store_name"
+    t.string "total_products"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stores_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,6 +52,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_154713) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.boolean "admin"
   end
 
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "stores"
+  add_foreign_key "stores", "users"
 end
