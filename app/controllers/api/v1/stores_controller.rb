@@ -37,6 +37,11 @@ class Api::V1::StoresController < ApplicationController
       end
     end
 
+    def show_prod
+      @show = current_store.product
+      render json:{status: 'Success', data: @show}
+    end
+
     def store_login_params
       params.permit(:store_name, :email, :password)
     end
