@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
+      resources :stores, only: [:index]
+      resources :products, only: [:index, :show]
+      resources :categories, only: [:index]
+      get "stores/all", to: 'stores#show_all'
+      get "categories/all", to: 'categories#show_all'
+      get "categories/:id/products", to: 'categories#show_cat_products'
+      get "stores/:id/products", to: 'stores#show_store_products'
       post "user/login", to: 'users#login'
 
     end
