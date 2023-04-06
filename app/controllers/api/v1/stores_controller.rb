@@ -6,8 +6,8 @@ class Api::V1::StoresController < ApplicationController
     end
 
     def show_all
-      @store = Store.all
-      render json: {status: 'Success', message: 'Displaying stores', data: @store}
+      @store = Store.all.includes(product:[:store, :category])
+      render json: {status: 'Success', message: 'Displaying stores', data: @store.as_json(include: {product: {include: [:category, :store]}})}
     end
 
     def show_store_products
@@ -43,6 +43,6 @@ class Api::V1::StoresController < ApplicationController
     end
 
     def store_login_params
-      params.permit(:store_name, :email, :password)
+      params.require(:store).permit(:store_name, :email, :password)
     end
 end
