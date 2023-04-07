@@ -1,8 +1,8 @@
 class Api::V1::StoresController < ApplicationController
   skip_before_action :authenticate_request, only: %i[index show_all show_store_products create login]
     def index
-        @store = Store.all.limit(3)
-        render json: {status: 'Success', message: '3 Stores gotten', data: @store}
+        @store = Store.all.limit(3).includes(product:[:store, :category])
+        render json: {status: 'Success', message: '3 Stores gotten', data: @store.as_json(include: {product: {include:[:category, :store]}})}
     end
 
     def show_all
