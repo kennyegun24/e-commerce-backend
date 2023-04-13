@@ -31,7 +31,7 @@ class Api::V1::StoresController < ApplicationController
   
       if @store && @store.authenticate(params[:password])
         token = encode_token(store_id: @store.id)
-        render json: {status: 'Success', message: 'Logged in successfully', data: {token:}},status: 200
+        render json: {status: 'Success', message: 'Logged in successfully', data: {token:}, store: @store},status: 200
       else
         render json: {status: 'Error', message: 'Invalid email or password'},status: 401
       end
