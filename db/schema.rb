@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_215055) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_204145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,22 +29,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_215055) do
     t.string "image"
     t.string "details"
     t.string "description"
-    t.bigint "store_id"
-    t.bigint "category_id"
+    t.bigint "store_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "in_stock"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
     t.string "store_name"
-    t.string "total_products"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
     t.string "image"
+    t.integer "total_products", default: 0
   end
 
   create_table "users", force: :cascade do |t|
