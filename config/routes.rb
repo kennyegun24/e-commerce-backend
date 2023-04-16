@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post "user/login", to: 'users#login'
       post "store/login", to: 'stores#login'
       get "store/show", to: 'stores#show_prod'
-
+      get "store/orders", to: 'orders#show_store_orders'
     end
   end
 end
