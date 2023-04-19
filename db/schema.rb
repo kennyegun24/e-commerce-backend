@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_16_053104) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_231730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_053104) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -63,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_053104) do
     t.string "password_digest"
     t.string "image"
     t.integer "total_products", default: 0
+    t.integer "total_sold", default: 0
+    t.integer "store_value", default: 0
   end
 
   create_table "users", force: :cascade do |t|
