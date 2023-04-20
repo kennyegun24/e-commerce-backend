@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get "stores/:id/products", to: 'stores#show_store_products'
       post "user/login", to: 'users#login'
       post "store/login", to: 'stores#login'
+      post "admin/login", to: 'admin#login'
+      get "admin/all_users", to: 'admin#all_users'
       get "store/show", to: 'stores#show_prod'
       get "store/orders", to: 'orders#show_store_orders'
     end

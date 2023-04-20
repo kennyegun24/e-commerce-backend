@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
     validates :name, presence: true, length: {maximum: 10}
     validates :email, presence: true, uniqueness: true
-    validates :password, presence: true, length: {minimum: 8}
     
+    after_create :update_user_count
+    
+    def update_user_count
+        Admin.update(user_count: User.count )
+    end
 end
