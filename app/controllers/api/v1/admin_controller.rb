@@ -15,4 +15,20 @@ class Api::V1::AdminController < ApplicationController
     @users = User.all
     render json: {status: 'Success', message: 'All users', users: @users}, status: 200
   end
+  def all_orders
+    @orders = Order.all
+    render json: {status: 'Success', message: 'All orders', orders: @orders}, status: 200
+  end
+  def all_products
+    @products = Product.all
+    render json: {status: 'Success', message: 'All products', products: @products}, status: 200
+  end
+  def all_stores
+    @stores = Store.all
+    render json: {status: 'Success', message: 'All stores', stores: @stores}, status: 200
+  end
+  def all_categories
+    @categories = Category.all
+    render json: {status: 'Success', message: 'All categories', categories: @categories}, status: 200
+  end
 end
