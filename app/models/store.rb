@@ -7,8 +7,13 @@ class Store < ApplicationRecord
     validates :store_name, presence: true, length: {maximum: 15}
     validates :image, presence: true
     validates :email, presence: true, uniqueness: true
-    validates :password, presence: true, length: {minimum: 6}
     validates :total_products, presence: true
+
+    after_create :update_store_count
+    
+    def update_store_count
+        Admin.update(store_count: Store.count )
+    end
 end
 
     # def create

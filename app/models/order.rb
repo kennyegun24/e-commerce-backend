@@ -8,6 +8,7 @@ class Order < ApplicationRecord
 
     after_create :update_product
     after_create :update_store_amount
+    after_create :update_admin_order
 
     def update_product
         if product.in_stock >= self.quantity
@@ -17,6 +18,10 @@ class Order < ApplicationRecord
 
     def update_store_amount
         store.update(total_sold: store.total_sold += self.amount)
+    end
+
+    def update_admin_order
+        Admin.update(order_count: Order.count )
     end
 
     private

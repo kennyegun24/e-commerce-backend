@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+admin = Admin.create( password: '12345678', email: 'kennyegun@gmail.com')
+
 category1 = Category.create(name: 'shoes', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680568079/cld-sample-5.jpg')
 category2 = Category.create(name: 'Gadgets', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680800798/accessories_bagbqs.jpg')
 category3 = Category.create(name: 'Home Appliances', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680800798/appliances_an1xju.jpg')
@@ -56,7 +58,7 @@ product23 = Product.create(name: 'Laptop', size: '14inhs', color: 'Silver', pric
 
 user = User.create(name: 'Kenny', password: '12345678', email: 'kennyegun@gmail.com')
 Order.create(product_name: 'Laptop', user_name: 'Kenny', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/laptop_oxbywq.jpg', quantity: 2, amount: 190, address: 'Yaba College of tech', tel_number: '0909009090', user: user, product: product23, store: store5, created_at: 'Mon, 12 Jan 2023 20:23:34.3109240000 UTC +00:00')
-Order.create(product_name: 'Laptop', user_name: 'Kenny', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/laptop_oxbywq.jpg', quantity: 4, amount: 600, address: 'Yaba College of tech', tel_number: '0909009090', user: user, product: product22, store: store5, created_at: 'Mon, 12 Jan 2023 20:23:34.3109240000 UTC +00:00')
+Order.create(product_name: 'Laptop', user_name: 'Kenny', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/laptop_oxbywq.jpg', quantity: 2, amount: 600, address: 'Yaba College of tech', tel_number: '0909009090', user: user, product: product22, store: store5, created_at: 'Mon, 12 Jan 2023 20:23:34.3109240000 UTC +00:00')
 Order.create(product_name: 'Samsung Fold', user_name: 'Samuel', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/samfold_cbwfeo.jpg', quantity: 1, amount: 250, address: 'Block N18, Flat 3, Abesan Estate', tel_number: '0909009090', user: user, product: product22, store: store5, created_at: 'Mon, 12 Feb 2023 20:23:34.3109240000 UTC +00:00')
 Order.create(product_name: 'Laptop', user_name: 'Taiwo', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/laptop_oxbywq.jpg', quantity: 5, amount: 120, address: 'University of Lagos', tel_number: '08023232323', user: user, product: product22, store: store5, created_at: 'Mon, 12 Mar 2023 20:23:34.3109240000 UTC +00:00')
 Order.create(product_name: 'Laptop', user_name: 'Taiwo', image: 'https://res.cloudinary.com/drfqge33t/image/upload/v1680882681/laptop_oxbywq.jpg', quantity: 6, amount: 400, address: 'Abesan of Lagos', tel_number: '08023232323', user: user, product: product19, store: store5, created_at: 'Mon, 12 Mar 2023 20:23:34.3109240000 UTC +00:00')
