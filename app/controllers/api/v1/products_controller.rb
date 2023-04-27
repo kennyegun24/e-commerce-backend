@@ -7,8 +7,7 @@ class Api::V1::ProductsController < ApplicationController
 
     def show
         @products = Product.find(params[:id])
-        render json: {status: 'Success', message: 'Individual product', data: @products.to_json(include: [:store, :category])}
+        render json: {status: 'Success', message: 'Individual product', data: @products.as_json(include: [:store, :category])}
     end
-
-               
+      
 end
