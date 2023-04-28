@@ -7,7 +7,7 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   def show_all
-    @category = Category.all.includes(product: [:category, :store]).to_json(include: {product: {include: [:category, :store]}})
+    @category = Category.all
     render json: {status: 'Success', message: 'all categories', data: @category}
   end
 
