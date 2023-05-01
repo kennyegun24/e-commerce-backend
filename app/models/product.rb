@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    has_many :order, dependent: :destroy
+    has_many :order_item, dependent: :destroy
 
     belongs_to :store, class_name: 'Store'
     belongs_to :category, class_name: 'Category'

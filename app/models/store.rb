@@ -2,7 +2,7 @@ class Store < ApplicationRecord
     has_secure_password
     
     has_many :product, foreign_key: 'store_id', class_name: 'Product'
-    has_many :order
+    has_many :order_item
 
     validates :store_name, presence: true, length: {maximum: 15}
     validates :image, presence: true
