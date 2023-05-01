@@ -1,40 +1,26 @@
 class Order < ApplicationRecord
-    belongs_to :store, class_name: 'Store'
+    attr_accessor :credit_card_number, :credit_card_exp_month, :credit_card_exp_year, :credit_card_cvv
     belongs_to :user, class_name: 'User'
-    belongs_to :product, class_name: 'Product'
+    has_one :payment
+    has_many :order_item
 
-    validate :check_store_id
-    validate :check_quantity
-
-    after_create :update_product
-    after_create :update_store_amount
     after_create :update_admin_order
+    after_create :create_payment
 
-    def update_product
-        if product.in_stock >= self.quantity
-            product.update(in_stock: product.in_stock - self.quantity)
-        end
-    end
+    enum payment_method: %i[credit_card]
 
-    def update_store_amount
-        store.update(total_sold: store.total_sold += self.amount)
+    def create_payment
+        params = {
+            order_id: id,
+            credit_card_number: credit_card_number,
+            credit_card_exp_month: credit_card_exp_month,
+            credit_card_exp_year: credit_card_exp_year,
+            credit_card_cvv: credit_card_cvv
+        }
+        Payment.create!(params)
     end
 
     def update_admin_order
         Admin.update(order_count: Order.count )
-    end
-
-    private
-  
-    def check_store_id
-      unless store_id == product.store_id
-        errors.add(:store_id, "must match the product's store_id")
-      end
-    end
-
-    def check_quantity
-        unless product.in_stock >= self.quantity
-            errors.add(:quantity, 'Should not be negative')
-        end
     end
 end
