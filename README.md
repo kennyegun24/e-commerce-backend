@@ -1,24 +1,82 @@
-# README
+<!-- PROJECT DESCRIPTION -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  # 📖 [Shopping Spree backend] <a name="about-project"></a>
 
-Things you may want to cover:
+> This is the bckend for a nearly fully functional ecommerce store I created. I created it using Ruby in Rails, Stripe for payment, JWT for secured logins and account creation, PosgreSQL database, and Bcrypt to hash passwords before being stored to the database.
 
-* Ruby version
+## 🛠 Built With <a name="built-with">Ruby on Rails</a>
 
-* System dependencies
+### Tech Stack <a name="tech-stack">Backend</a>
 
-* Configuration
+<details>
+  <summary>Server</summary>
+  <summary>Api</summary>
+  <ul>
+    <li><a >Ruby on Rails</a></li>
+    <li><a >JWT</a></li>
+    <li><a >PostgreSQL</a></li>
+    <li><a >Stripe gateway</a></li>
+  </ul>
+</details>
 
-* Database creation
+## Description
+#### User registration
++ A user is registered using Email, name and Password.
++ Once a user is registered, a stripe ID is automatically assigned to the user directly from stripe
++ When a user is registered, a jwt token is created to enable the user to access the api endpoints
 
-* Database initialization
+#### User login
++ A user can login using Email and Password
 
-* How to run the test suite
+### Categories
++ All products in the store are kept based on categories... (gucci bag will be under BAGS category, Samsung galaxy A40 will be stored under phones)
++ A new category can only be created by an admin
 
-* Services (job queues, cache servers, search engines, etc.)
+### Products
++ Products can only created by an admin
++ Products are stored under a category and also owned by a store.
 
-* Deployment instructions
+### Stores
++ All items in the store are added only by an admin
++ Each stores have products under them (only if they have products registered accepted by an admin)
 
-* ...
+### Store Login and creation
++ A store can be created using Email, store_name, image and Password.
++ Login using Email and pssword
+
+
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need: `Ruby and Ruby on Rails to be installed on your local machine`
+
+### Setup
+
+Clone this repository to your desired folder: `https://github.com/kennyegun24/e-commerce-backend.git`
+
+
+### Install
+
+Install this project with: `bundle i or bundle install`
+
+
+### Usage
+
+To run the project, execute the following command: `rails server or rails s`
+
+
+### Deployment: You can use any deployment service of your choice
+
+
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Author**
+
+- GitHub: [Kenny Egun](https://github.com/kennyegun24)
+- Twitter: [Kenny Egun](https://twitter.com/kenny_eLiasUTD)
