@@ -16,7 +16,7 @@ class Api::V1::AdminController < ApplicationController
     render json: {status: 'Success', message: 'All users', users: @users}, status: 200
   end
   def all_orders
-    @orders = Order.all
+    @orders = OrderItem.all
     render json: {status: 'Success', message: 'All orders', orders: @orders}, status: 200
   end
   def all_products
@@ -72,6 +72,6 @@ class Api::V1::AdminController < ApplicationController
   end
   
   def product_params
-    params.require(:product).permit(:store_id, :in_stock, :category_id, :email, :name, :image, :size, :price, :color, :description, :details)
+    params.require(:product).permit(:store_id, :in_stock, :category_id, :name, :image, :size, :price, :color, :description, :details)
   end
 end

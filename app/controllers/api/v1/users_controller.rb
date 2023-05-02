@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.save
       token = encode_token(user_id: @user.id)
-      render json: {status: 'success', message: 'User created', data: {token:}, user: @user}, status: 201
+      render json: {status: 'success', message: 'User created', data: {token:, user: {id: @user.id, name: @user.name}}}, status: 201
     else
       render json: {status: 'Error', message: 'Email exists already'}, status: 422
     end
@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       token = encode_token(user_id: @user.id)
-      render json: {status: 'Success', message: 'Logged in successfully', data: {token:}},status: 200
+      render json: {status: 'Success', message: 'Logged in successfully', data: {token:, user: {id: @user.id, name: @user.name}}},status: 200
     else
       render json: {status: 'Error', message: 'Invalid email or password'},status: 401
     end

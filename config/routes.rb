@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :stores, only: [:index, :create]
       resources :products, only: [:index, :show]
       resources :categories, only: [:index]
+      resources :orders, only: [:create]
       get "stores/all", to: 'stores#show_all'
       get "categories/all", to: 'categories#show_all'
       get "categories/:id/products", to: 'categories#show_cat_products'
