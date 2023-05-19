@@ -6,6 +6,11 @@
 
 ## 🛠 Built With <a name="built-with">Ruby on Rails</a>
 
+### Links to the frontends...
+- <a href="https://github.com/kennyegun24/e-commerce-frontend">General users frontend</a>
+- <a href="https://github.com/kennyegun24/e-commerce-store-frontend">Store owner dashboard</a>
+- <a href="https://github.com/kennyegun24/e-commerce-admin-dashboard">Admin dashboard</a>
+
 ### Tech Stack <a name="tech-stack">Backend</a>
 
 <details>
