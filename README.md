@@ -5,10 +5,15 @@
 > This is the bckend for a nearly fully functional ecommerce store I created. I created it using Ruby in Rails, Stripe for payment, JWT for secured logins and account creation, PosgreSQL database, and Bcrypt to hash passwords before being stored to the database.
 
 ## 🛠 Built With <a name="built-with">Ruby on Rails</a>
+<img src="https://github.com/kennyegun24/e-commerce-backend/assets/109461921/e51e3f6d-1427-4238-acf8-f54ee3868b79" width="70%"/>
+<br />
 
 ### Links to the frontends...
+
 - <a href="https://github.com/kennyegun24/e-commerce-frontend">General users frontend</a>
+
 - <a href="https://github.com/kennyegun24/e-commerce-store-frontend">Store owner dashboard</a>
+
 - <a href="https://github.com/kennyegun24/e-commerce-admin-dashboard">Admin dashboard</a>
 
 ### Tech Stack <a name="tech-stack">Backend</a>
